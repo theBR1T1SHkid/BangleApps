@@ -1,6 +1,6 @@
 (function(back) {
     const PREFERENCE_FILE = "matrixclock.settings.json";
-    var settings = Object.assign({color : "theme", time_format: '12 hour', intensity: "light"},
+    var settings = Object.assign({color : "theme", time_format: '12 hour', intensity: "light", animate_locked: "yes"},
         require('Storage').readJSON(PREFERENCE_FILE, true) || {});
 
     console.log("loaded:" + JSON.stringify(settings));
@@ -47,6 +47,7 @@
         "Time Format": stringInSettings("time_format", ['12 hour','24 hour']),
         "Intensity": stringInSettings("intensity", ['light',
             'medium',
-            'high'])
+            'high']),
+        "Animate while locked": stringInSettings("animate_locked", ['yes', 'no']),
     });
 })
